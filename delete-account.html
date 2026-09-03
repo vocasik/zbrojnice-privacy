@@ -21,6 +21,8 @@ body{margin:0;background:radial-gradient(circle at top,#210807 0,#08090b 32rem,#
 .btn{background:var(--red);color:#fff;border:1px solid #f04a44;box-shadow:0 9px 30px rgba(227,38,32,.22)}.btn.secondary{background:#12191e;border-color:var(--border);box-shadow:none}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
 code{background:#080d11;border:1px solid var(--border);border-radius:7px;padding:2px 6px}.footer{color:var(--muted);font-size:13px;text-align:center;margin-top:30px}
 a{color:#ff6761}strong{color:#fff}@media(max-width:600px){.wrap{padding-top:26px}.hero,.card{padding:19px;border-radius:16px}}
+
+.form-grid{display:grid;gap:14px;margin-top:16px}.field label{display:block;font-size:13px;font-weight:800;margin-bottom:6px}.field input{width:100%;padding:12px 13px;border-radius:11px;border:1px solid var(--border);background:#080d11;color:#fff;font:inherit;outline:none}.field input:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(227,38,32,.12)}.help{font-size:12px;color:var(--muted)}.status{display:none;margin-top:14px;padding:12px 14px;border-radius:12px;background:#0b1712;border:1px solid #27513a}.status.error{background:#1c0d0d;border-color:#612722}.btn[disabled]{opacity:.55;cursor:not-allowed}
 </style>
 </head>
 <body>
@@ -42,14 +44,24 @@ a{color:#ff6761}strong{color:#fff}@media(max-width:600px){.wrap{padding-top:26px
 
 <section class="card">
 <h2>Žádost bez přístupu do aplikace</h2>
-<p>Pokud už aplikaci nemáte nainstalovanou nebo se do účtu nemůžete přihlásit, pošlete žádost na:</p>
-<p><a href="mailto:pepacernak@gmail.com">pepacernak@gmail.com</a></p>
-<p>Do žádosti uveďte, že se týká aplikace <strong>Zbrojnice</strong>, a telefonní číslo používané pro přihlášení. Neposílejte svůj PIN.</p>
-<p>Před smazáním může být nutné ověřit totožnost žadatele, aby nemohl být odstraněn účet jiné osoby.</p>
-<div class="actions">
-<a class="btn" href="mailto:pepacernak@gmail.com?subject=Zbrojnice%20-%20zadost%20o%20smazani%20uctu">Požádat o smazání e-mailem</a>
-<a class="btn secondary" href="index.html">Zásady ochrany soukromí</a>
-</div>
+<p>Pokud se do aplikace nemůžete přihlásit, můžete zahájit ověřenou žádost o smazání účtu zde.</p>
+<form id="delete-request-form" class="form-grid" novalidate>
+  <div class="field">
+    <label for="email">Kontaktní e-mail</label>
+    <input id="email" name="email" type="email" autocomplete="email" maxlength="160" required placeholder="vas@email.cz">
+    <div class="help">Na tento e-mail pošleme časově omezený odkaz pro ověření žádosti.</div>
+  </div>
+  <div class="field">
+    <label for="phone">Telefonní číslo účtu Zbrojnice</label>
+    <input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="24" required placeholder="+420 777 123 456">
+    <div class="help">Použijte stejné číslo, které máte uvedené u účtu. PIN nikdy nezadávejte ani neposílejte e-mailem.</div>
+  </div>
+  <button id="submit-request" class="btn" type="submit">Odeslat žádost o smazání</button>
+</form>
+<div id="request-status" class="status" role="status"></div>
+<div class="notice"><strong>Jak ověření probíhá:</strong> pokud údaje odpovídají aktivnímu účtu, přijde na uvedený e-mail ověřovací odkaz. Po jeho otevření znovu zadáte telefonní číslo a Firebase odešle SMS kód. Teprve po úspěšném ověření bude žádost označena jako ověřená a předána k ručnímu vyřízení.</div>
+<p class="help">Z bezpečnostních důvodů stránka neprozrazuje, zda konkrétní telefonní číslo v Zbrojnici existuje. Pokud e-mail nedorazí, zkontrolujte zadané údaje a složku Spam.</p>
+<div class="actions"><a class="btn secondary" href="index.html">Zásady ochrany soukromí</a></div>
 </section>
 
 <section class="card">
@@ -86,5 +98,57 @@ a{color:#ff6761}strong{color:#fff}@media(max-width:600px){.wrap{padding-top:26px
 
 <div class="footer">Zbrojnice · Smazání účtu · 3. 9. 2026</div>
 </main>
+
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+import {getFunctions, httpsCallable} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-functions.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC6jxCKKZTvo-yj7fcVHPMpiY7wgKrC5C8",
+  authDomain: "zbrojnice-d7869.firebaseapp.com",
+  projectId: "zbrojnice-d7869",
+  storageBucket: "zbrojnice-d7869.firebasestorage.app",
+  messagingSenderId: "227925994076",
+  appId: "1:227925994076:web:a9a18c7646d5d3baed5499"
+};
+
+const app = initializeApp(firebaseConfig);
+const functions = getFunctions(app, "europe-west3");
+const createRequest = httpsCallable(functions, "createExternalDeletionRequest");
+const form = document.getElementById("delete-request-form");
+const button = document.getElementById("submit-request");
+const statusBox = document.getElementById("request-status");
+
+function showStatus(message, isError = false) {
+  statusBox.textContent = message;
+  statusBox.classList.toggle("error", isError);
+  statusBox.style.display = "block";
+}
+
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  if (!form.reportValidity()) return;
+
+  button.disabled = true;
+  button.textContent = "Odesílám…";
+  statusBox.style.display = "none";
+
+  try {
+    await createRequest({
+      email: document.getElementById("email").value.trim(),
+      phone: document.getElementById("phone").value.trim()
+    });
+    form.reset();
+    showStatus("Pokud údaje odpovídají aktivnímu účtu Zbrojnice, odeslali jsme na uvedený e-mail ověřovací odkaz. Odkaz platí 24 hodin.");
+  } catch (error) {
+    const message = error && error.message ? error.message : "Žádost se nepodařilo odeslat. Zkuste to později.";
+    showStatus(message.replace(/^Firebase:\s*/i, ""), true);
+  } finally {
+    button.disabled = false;
+    button.textContent = "Odeslat žádost o smazání";
+  }
+});
+</script>
+
 </body>
 </html>
