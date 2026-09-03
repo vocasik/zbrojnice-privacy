@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Zásady ochrany soukromí aplikace Zbrojnice.">
+<title>Zásady ochrany soukromí – Zbrojnice</title>
+<style>
+:root{color-scheme:dark;--bg:#050709;--panel:#0d1216;--panel2:#111920;--border:#273139;--text:#f4f6f7;--muted:#9aa4ad;--red:#e32620;--red2:#8e1512}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at top,#210807 0,#08090b 32rem,#050709 60rem);color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65}
+.wrap{width:min(900px,calc(100% - 32px));margin:0 auto;padding:48px 0 72px}
+.brand{display:flex;align-items:center;gap:12px;margin-bottom:32px}.mark{width:42px;height:42px;border-radius:14px;background:linear-gradient(145deg,#ff382f,#a80f0b);box-shadow:0 0 28px rgba(227,38,32,.28);position:relative}.mark:after{content:"";position:absolute;inset:11px 14px 10px;border-radius:50% 50% 45% 45%;background:#08090b;transform:rotate(8deg)}
+.brand b{font-size:20px}.brand span{display:block;color:var(--muted);font-size:12px}
+.hero,.card{background:rgba(13,18,22,.94);border:1px solid var(--border);border-radius:20px;box-shadow:0 18px 55px rgba(0,0,0,.28)}
+.hero{padding:30px;margin-bottom:18px}.hero h1{font-size:clamp(30px,5vw,48px);line-height:1.05;margin:0 0 12px}.hero p{margin:0;color:#c6cdd2}.updated{color:var(--muted);font-size:13px;margin-top:16px}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 26px}.nav a,.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border-radius:12px;padding:10px 14px;font-weight:750}.nav a{color:#e7ebed;background:#10171c;border:1px solid var(--border)}.nav a:hover{border-color:#5d6870}
+.card{padding:24px;margin:14px 0}.card h2{font-size:21px;margin:0 0 10px}.card h3{font-size:16px;margin:20px 0 8px;color:#fff}.card p{margin:8px 0;color:#d5dade}.card li{margin:5px 0;color:#d5dade}
+.notice{border-left:4px solid var(--red);padding:12px 14px;background:rgba(227,38,32,.08);border-radius:0 12px 12px 0;margin:14px 0}
+.placeholder{display:inline-block;background:#2c1111;color:#ff9c97;border:1px dashed #7e2521;border-radius:8px;padding:2px 7px;font-weight:700}
+.btn{background:var(--red);color:#fff;border:1px solid #f04a44;box-shadow:0 9px 30px rgba(227,38,32,.22)}.btn.secondary{background:#12191e;border-color:var(--border);box-shadow:none}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+code{background:#080d11;border:1px solid var(--border);border-radius:7px;padding:2px 6px}.footer{color:var(--muted);font-size:13px;text-align:center;margin-top:30px}
+a{color:#ff6761}strong{color:#fff}@media(max-width:600px){.wrap{padding-top:26px}.hero,.card{padding:19px;border-radius:16px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<div class="brand"><div class="mark" aria-hidden="true"></div><div><b>Zbrojnice</b><span>interní organizace jednotky</span></div></div>
+<section class="hero">
+<h1>Zásady ochrany soukromí</h1>
+<p>Informace o tom, jak aplikace Zbrojnice zpracovává osobní údaje, jak dlouho je uchovává a jak lze smazat uživatelský účet.</p>
+<div class="updated">Poslední aktualizace: 3. 9. 2026</div>
+</section>
+<nav class="nav" aria-label="Obsah"><a href="#provozovatel">Provozovatel a kontakt</a><a href="#data">Jaké údaje Zbrojnice zpracovává</a><a href="#ucel">Účely zpracování</a><a href="#pravni">Právní základ</a><a href="#pristup">Přístup k údajům</a><a href="#sluzby">Technické služby třetích stran</a><a href="#security">Zabezpečení</a><a href="#retence">Doba uchování a data po smazání</a><a href="#delete">Smazání vlastního účtu</a><a href="#remove">Vyřazení člena správcem</a><a href="#shifts">Minulé a budoucí směny</a><a href="#external-delete">Externí žádost o smazání účtu</a><a href="#notifications">Oznámení</a><a href="#photos">Fotografie a soubory</a><a href="#rights">Práva uživatele</a><a href="#children">Děti</a><a href="#changes">Změny zásad</a><a href="#contact">Kontakt</a></nav>
+<section class="card" id="provozovatel"><h2>1. Provozovatel a kontakt</h2>
+<p>Vývojář aplikace: <strong>Josef Černák</strong></p>
+<p>Kontaktní e-mail pro ochranu soukromí a žádosti o smazání účtu: <a href="mailto:pepacernak@gmail.com">pepacernak@gmail.com</a></p>
+<p>V závislosti na způsobu používání aplikace může být za zpracování provozních osobních údajů členů odpovědná také organizace nebo jednotka, která Zbrojnici používá.</p>
+</section>
+<section class="card" id="data"><h2>2. Jaké údaje Zbrojnice zpracovává</h2>
+<ul><li>jméno a příjmení, telefonní číslo a případnou profilovou fotografii,</li><li>příslušnost k jednotce, role, oprávnění, odborné funkce a způsobilosti,</li><li>směny, obsazení, výměny, záskoky a dostupnost,</li><li>údaje související s událostmi, oznámeními a provozním obsahem vloženým uživatelem,</li><li>nastavení oznámení, identifikátory zařízení, push tokeny a technická data zabezpečené relace,</li><li>datum a čas vybraných administrativních a bezpečnostních operací.</li></ul>
+<p>Přihlašovací PIN není ukládán v čitelné podobě.</p>
+</section>
+<section class="card" id="ucel"><h2>3. Účely zpracování</h2>
+<p>Údaje jsou používány k zabezpečení účtu, přihlášení, správě členů, plánování směn, výměnám a záskokům, evidenci dostupnosti, komunikaci v jednotce, správě oprávnění, doručování oznámení a zachování nezbytné provozní historie.</p>
+</section>
+<section class="card" id="pravni"><h2>4. Právní základ</h2>
+<p>Konkrétní právní základ závisí na vztahu mezi uživatelem a organizací nebo jednotkou. Může jít zejména o plnění povinností souvisejících s činností jednotky, oprávněný zájem na bezpečné organizaci a evidenci provozu, splnění právní povinnosti nebo souhlas, pokud je pro konkrétní zpracování vyžadován.</p>
+</section>
+<section class="card" id="pristup"><h2>5. Přístup k údajům</h2>
+<p>Přístup je omezen podle role a oprávnění. Běžní členové a plánovači vidí jen údaje potřebné pro používání aplikace. Správce má širší přístup potřebný ke správě jednotky. Historie vyřazení nebo smazání členů je dostupná pouze správcům.</p>
+</section>
+<section class="card" id="sluzby"><h2>6. Technické služby třetích stran</h2>
+<p>Zbrojnice využívá služby společnosti Google, zejména Firebase, například pro cloudovou databázi, cloudové funkce, ukládání souborů, backend a Firebase Cloud Messaging. Na zařízeních Apple mohou být push notifikace doručovány přes Apple Push Notification service (APNs).</p>
+<p>Osobní údaje nejsou prodávány reklamním společnostem a Zbrojnice je nepoužívá pro cílenou reklamu.</p>
+</section>
+<section class="card" id="security"><h2>7. Zabezpečení</h2>
+<p>Aplikace používá zabezpečené přihlašovací relace, ukládání PINu pouze v zabezpečené podobě, omezení přístupu podle oprávnění a zabezpečenou cloudovou infrastrukturu.</p>
+</section>
+<section class="card" id="retence"><h2>8. Doba uchování a data po smazání</h2>
+<p>Údaje aktivního účtu jsou uchovávány po dobu, kdy je účet aktivní a potřebný pro fungování jednotky.</p>
+<p>Po smazání nebo vyřazení účtu se odstraní zejména telefonní přihlášení, PIN, aktivní relace, push tokeny, profilová fotografie, osobní nastavení oznámení, dostupnost a aktuální či budoucí obsazení směn.</p>
+<div class="notice"><strong>Minimální historické údaje mohou zůstat zachovány.</strong> Jméno a interní identifikátor bývalého člena mohou zůstat u minulých směn a v auditním záznamu smazání nebo vyřazení. Audit obsahuje také jméno osoby, která operaci provedla, a datum a čas. Tyto údaje se uchovávají pouze po dobu nezbytnou k zachování provozní historie, odpovědnosti za administrativní úkony a řešení provozních či bezpečnostních incidentů.</div>
+</section>
+<section class="card" id="delete"><h2>9. Smazání vlastního účtu</h2>
+<p>Běžný člen i plánovač mohou smazat pouze svůj vlastní účet. Smazání lze zahájit přímo v aplikaci:</p>
+<p><strong>Můj profil → Smazat účet</strong></p>
+<p>Uživatel musí operaci potvrdit a ověřit aktuálním PINem. Správce může smazat svůj účet jen tehdy, pokud v jednotce zůstane alespoň jeden další správce. Jediný správce musí nejprve určit jiného správce.</p>
+</section>
+<section class="card" id="remove"><h2>10. Vyřazení člena správcem</h2>
+<p>Pouze správce může vyřadit jiného aktivního člena. Plánovač ani běžný člen nemohou odstraňovat účty jiných osob. Posledního správce jednotky nelze vyřadit.</p>
+<p>O vyřazení vzniká auditní záznam obsahující jméno vyřazeného člena, jméno správce, typ operace a datum a čas.</p>
+</section>
+<section class="card" id="shifts"><h2>11. Minulé a budoucí směny</h2>
+<ul><li>člen je odstraněn z aktuálních a budoucích uložených směn,</li><li>nevyřízené výměny a záskoky jsou zrušeny,</li><li>minulé směny zůstávají zachovány,</li><li>v minulých směnách může zůstat jméno jako minimální historický údaj o skutečném obsazení.</li></ul>
+</section>
+<section class="card" id="external-delete"><h2>12. Externí žádost o smazání účtu</h2>
+<p>Pokud uživatel nemá přístup do aplikace, může podat žádost také z veřejné stránky:</p>
+<p><a href="https://vocasik.github.io/zbrojnice-privacy/delete-account.html">https://vocasik.github.io/zbrojnice-privacy/delete-account.html</a></p>
+<p>nebo na e-mail <a href="mailto:pepacernak@gmail.com">pepacernak@gmail.com</a>.</p>
+<p>Před provedením externí žádosti může být nutné ověřit totožnost žadatele.</p>
+<div class="actions"><a class="btn" href="delete-account.html">Stránka pro smazání účtu</a></div>
+</section>
+<section class="card" id="notifications"><h2>13. Oznámení</h2>
+<p>Zbrojnice může posílat upozornění na zprávy, směny, výměny, záskoky, události a další důležité provozní informace. Pro push notifikace je používán technický token zařízení; po odstranění účtu je odstraněn.</p>
+</section>
+<section class="card" id="photos"><h2>14. Fotografie a soubory</h2>
+<p>Obsah nahraný uživatelem je ukládán pouze pro účel příslušné funkce. Profilová fotografie odstraněného uživatele je při smazání nebo vyřazení odstraněna.</p>
+</section>
+<section class="card" id="rights"><h2>15. Práva uživatele</h2>
+<p>V rozsahu stanoveném platnými právními předpisy může mít uživatel právo na informace, přístup, opravu, výmaz, omezení zpracování, námitku, přenositelnost a odvolání souhlasu, pokud je zpracování založeno na souhlasu.</p>
+<p>V České republice je dozorovým orgánem Úřad pro ochranu osobních údajů.</p>
+</section>
+<section class="card" id="children"><h2>16. Děti</h2>
+<p>Zbrojnice není určena široké veřejnosti ani dětem. Je určena osobám, kterým byl udělen přístup do konkrétní jednotky.</p>
+</section>
+<section class="card" id="changes"><h2>17. Změny zásad</h2>
+<p>Zásady mohou být aktualizovány při změně funkcí, technologií nebo právních požadavků. Aktuální verze bude dostupná na veřejné webové stránce a prostřednictvím odkazu v aplikaci.</p>
+</section>
+<section class="card" id="contact"><h2>18. Kontakt</h2>
+<p>Vývojář aplikace: <strong>Josef Černák</strong></p>
+<p>E-mail: <a href="mailto:pepacernak@gmail.com">pepacernak@gmail.com</a></p>
+</section>
+<div class="footer">Zbrojnice · Zásady ochrany soukromí · 3. 9. 2026</div>
+</main>
+</body>
+</html>

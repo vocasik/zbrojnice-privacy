@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Smazání uživatelského účtu aplikace Zbrojnice.">
+<title>Smazání účtu – Zbrojnice</title>
+<style>
+:root{color-scheme:dark;--bg:#050709;--panel:#0d1216;--panel2:#111920;--border:#273139;--text:#f4f6f7;--muted:#9aa4ad;--red:#e32620;--red2:#8e1512}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at top,#210807 0,#08090b 32rem,#050709 60rem);color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65}
+.wrap{width:min(900px,calc(100% - 32px));margin:0 auto;padding:48px 0 72px}
+.brand{display:flex;align-items:center;gap:12px;margin-bottom:32px}.mark{width:42px;height:42px;border-radius:14px;background:linear-gradient(145deg,#ff382f,#a80f0b);box-shadow:0 0 28px rgba(227,38,32,.28);position:relative}.mark:after{content:"";position:absolute;inset:11px 14px 10px;border-radius:50% 50% 45% 45%;background:#08090b;transform:rotate(8deg)}
+.brand b{font-size:20px}.brand span{display:block;color:var(--muted);font-size:12px}
+.hero,.card{background:rgba(13,18,22,.94);border:1px solid var(--border);border-radius:20px;box-shadow:0 18px 55px rgba(0,0,0,.28)}
+.hero{padding:30px;margin-bottom:18px}.hero h1{font-size:clamp(30px,5vw,48px);line-height:1.05;margin:0 0 12px}.hero p{margin:0;color:#c6cdd2}.updated{color:var(--muted);font-size:13px;margin-top:16px}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 26px}.nav a,.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border-radius:12px;padding:10px 14px;font-weight:750}.nav a{color:#e7ebed;background:#10171c;border:1px solid var(--border)}.nav a:hover{border-color:#5d6870}
+.card{padding:24px;margin:14px 0}.card h2{font-size:21px;margin:0 0 10px}.card h3{font-size:16px;margin:20px 0 8px;color:#fff}.card p{margin:8px 0;color:#d5dade}.card li{margin:5px 0;color:#d5dade}
+.notice{border-left:4px solid var(--red);padding:12px 14px;background:rgba(227,38,32,.08);border-radius:0 12px 12px 0;margin:14px 0}
+.placeholder{display:inline-block;background:#2c1111;color:#ff9c97;border:1px dashed #7e2521;border-radius:8px;padding:2px 7px;font-weight:700}
+.btn{background:var(--red);color:#fff;border:1px solid #f04a44;box-shadow:0 9px 30px rgba(227,38,32,.22)}.btn.secondary{background:#12191e;border-color:var(--border);box-shadow:none}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+code{background:#080d11;border:1px solid var(--border);border-radius:7px;padding:2px 6px}.footer{color:var(--muted);font-size:13px;text-align:center;margin-top:30px}
+a{color:#ff6761}strong{color:#fff}@media(max-width:600px){.wrap{padding-top:26px}.hero,.card{padding:19px;border-radius:16px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<div class="brand"><div class="mark" aria-hidden="true"></div><div><b>Zbrojnice</b><span>smazání uživatelského účtu</span></div></div>
+<section class="hero">
+<h1>Smazání účtu</h1>
+<p>Tato stránka popisuje, jak může uživatel aplikace Zbrojnice požádat o odstranění účtu a souvisejících osobních údajů.</p>
+<div class="updated">Poslední aktualizace: 3. 9. 2026</div>
+</section>
+
+<section class="card">
+<h2>Smazání přímo v aplikaci</h2>
+<p>Pokud máte do Zbrojnice přístup, použijte:</p>
+<p><strong>Můj profil → Smazat účet</strong></p>
+<p>Operaci potvrdíte aktuálním PINem. Běžný člen i plánovač mohou smazat jen svůj vlastní účet.</p>
+<div class="notice"><strong>Jediný správce jednotky svůj účet smazat nemůže.</strong> Nejprve musí určit jiného správce, aby jednotka nezůstala bez správy.</div>
+</section>
+
+<section class="card">
+<h2>Žádost bez přístupu do aplikace</h2>
+<p>Pokud už aplikaci nemáte nainstalovanou nebo se do účtu nemůžete přihlásit, pošlete žádost na:</p>
+<p><a href="mailto:pepacernak@gmail.com">pepacernak@gmail.com</a></p>
+<p>Do žádosti uveďte, že se týká aplikace <strong>Zbrojnice</strong>, a telefonní číslo používané pro přihlášení. Neposílejte svůj PIN.</p>
+<p>Před smazáním může být nutné ověřit totožnost žadatele, aby nemohl být odstraněn účet jiné osoby.</p>
+<div class="actions">
+<a class="btn" href="mailto:pepacernak@gmail.com?subject=Zbrojnice%20-%20zadost%20o%20smazani%20uctu">Požádat o smazání e-mailem</a>
+<a class="btn secondary" href="index.html">Zásady ochrany soukromí</a>
+</div>
+</section>
+
+<section class="card">
+<h2>Co se při smazání odstraní</h2>
+<ul>
+<li>telefonní číslo používané pro přihlášení,</li>
+<li>PIN a související přihlašovací údaje,</li>
+<li>aktivní relace a přístup zařízení,</li>
+<li>push tokeny a osobní nastavení oznámení,</li>
+<li>profilová fotografie,</li>
+<li>záznamy dostupnosti,</li>
+<li>obsazení uživatele v aktuálních a budoucích uložených směnách.</li>
+</ul>
+<p>Neuzavřené žádosti o výměnu nebo záskok jsou zrušeny.</p>
+</section>
+
+<section class="card">
+<h2>Co může zůstat zachováno</h2>
+<p>Pro zachování provozní historie jednotky může zůstat minimum historických údajů:</p>
+<ul>
+<li>jméno a interní identifikátor bývalého člena u minulých směn,</li>
+<li>auditní záznam o smazání nebo vyřazení,</li>
+<li>jméno osoby, která administrativní operaci provedla,</li>
+<li>datum a čas operace.</li>
+</ul>
+<p>Tyto údaje nejsou používány k dalšímu aktivnímu provozu účtu a uchovávají se jen po dobu nezbytnou pro provozní historii, odpovědnost za administrativní úkony a řešení případných incidentů.</p>
+</section>
+
+<section class="card">
+<h2>Kontakt</h2>
+<p>Vývojář aplikace: <strong>Josef Černák</strong></p>
+<p>E-mail: <a href="mailto:pepacernak@gmail.com">pepacernak@gmail.com</a></p>
+</section>
+
+<div class="footer">Zbrojnice · Smazání účtu · 3. 9. 2026</div>
+</main>
+</body>
+</html>
